@@ -1,0 +1,328 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portal</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0b0d12;
+      --card: #131722;
+      --card-hover: #1a1f2d;
+      --text: #f4f6fb;
+      --muted: #969eaf;
+      --accent: #6c8cff;
+      --border: #242a39;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 0%, #1b2850 0, transparent 35%),
+        radial-gradient(circle at 100% 100%, #271943 0, transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+      padding: 55px 0;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .logo {
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 18px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #6c8cff, #9b6cff);
+      font-size: 28px;
+      box-shadow: 0 15px 45px #0006;
+    }
+
+    h1 {
+      font-size: clamp(32px, 6vw, 52px);
+      letter-spacing: -1.5px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .search {
+      margin: 30px auto 45px;
+      max-width: 700px;
+      display: flex;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px #0004;
+    }
+
+    .search input {
+      flex: 1;
+      border: 0;
+      outline: 0;
+      padding: 17px 20px;
+      background: transparent;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .search button {
+      border: 0;
+      padding: 0 22px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .site {
+      display: block;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--card);
+      color: var(--text);
+      text-decoration: none;
+      transition: .18s ease;
+    }
+
+    .site:hover {
+      transform: translateY(-3px);
+      background: var(--card-hover);
+      border-color: #3c4660;
+    }
+
+    .icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .name {
+      font-weight: 600;
+    }
+
+    .description {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    .embed-box {
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      overflow: hidden;
+      background: var(--card);
+    }
+
+    .embed-toolbar {
+      display: flex;
+      gap: 8px;
+      padding: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .embed-toolbar input {
+      flex: 1;
+      min-width: 0;
+      padding: 11px 13px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      background: #0c0f16;
+      color: white;
+      outline: none;
+    }
+
+    .embed-toolbar button {
+      border: 0;
+      border-radius: 9px;
+      padding: 0 16px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: 0;
+      background: white;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 45px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 0;
+      }
+
+      iframe {
+        height: 500px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header>
+    <div class="logo">✦</div>
+    <h1>My Portal</h1>
+    <p class="subtitle">Your personal web dashboard</p>
+  </header>
+
+  <form class="search" id="searchForm">
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search the web..."
+      autocomplete="off"
+    >
+    <button type="submit">Search</button>
+  </form>
+
+  <h2>Quick Links</h2>
+
+  <div class="grid">
+
+    <a class="site" href="https://www.google.com" target="_blank" rel="noopener">
+      <div class="icon">🔎</div>
+      <div class="name">Google</div>
+      <div class="description">Search the web</div>
+    </a>
+
+    <a class="site" href="https://www.youtube.com" target="_blank" rel="noopener">
+      <div class="icon">▶️</div>
+      <div class="name">YouTube</div>
+      <div class="description">Videos & music</div>
+    </a>
+
+    <a class="site" href="https://www.tiktok.com" target="_blank" rel="noopener">
+      <div class="icon">♪</div>
+      <div class="name">TikTok</div>
+      <div class="description">Open TikTok</div>
+    </a>
+
+    <a class="site" href="https://github.com" target="_blank" rel="noopener">
+      <div class="icon">◉</div>
+      <div class="name">GitHub</div>
+      <div class="description">Code & projects</div>
+    </a>
+
+    <a class="site" href="https://www.wikipedia.org" target="_blank" rel="noopener">
+      <div class="icon">W</div>
+      <div class="name">Wikipedia</div>
+      <div class="description">The free encyclopedia</div>
+    </a>
+
+    <a class="site" href="https://www.reddit.com" target="_blank" rel="noopener">
+      <div class="icon">●</div>
+      <div class="name">Reddit</div>
+      <div class="description">Communities & discussion</div>
+    </a>
+
+  </div>
+
+  <h2>Web Viewer</h2>
+
+  <div class="embed-box">
+
+    <form class="embed-toolbar" id="embedForm">
+      <input
+        id="urlInput"
+        type="url"
+        placeholder="https://example.com"
+      >
+      <button type="submit">Open</button>
+    </form>
+
+    <iframe
+      id="viewer"
+      title="Web viewer"
+      src="about:blank"
+      sandbox="allow-forms allow-modals allow-popups allow-scripts allow-same-origin"
+    ></iframe>
+
+  </div>
+
+  <footer>
+    Personal portal • No proxy configuration • No network interception
+  </footer>
+
+</div>
+
+<script>
+  // Search
+  document.getElementById("searchForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const query = document.getElementById("searchInput").value.trim();
+
+    if (!query) return;
+
+    window.open(
+      "https://www.google.com/search?q=" + encodeURIComponent(query),
+      "_blank",
+      "noopener"
+    );
+  });
+
+  // Embedded viewer
+  document.getElementById("embedForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let url = document.getElementById("urlInput").value.trim();
+
+    if (!url) return;
+
+    if (!/^https?:\/\//i.test(url)) {
+      url = "https://" + url;
+    }
+
+    document.getElementById("viewer").src = url;
+  });
+</script>
+
+</body>
+</html>
+```
